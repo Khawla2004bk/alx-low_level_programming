@@ -1,8 +1,8 @@
 #include <stdio.h>
+
 /**
- * main : pricipal function
- *
- * return : Always 0 (Success)
+ * main - pricipal function
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
