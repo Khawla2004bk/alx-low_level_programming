@@ -1,5 +1,5 @@
 # 0x00. C -Hello, World
-
+![hello_world](https://user-images.githubusercontent.com/125459327/225973899-4f1afe6a-5681-4bcf-9e4b-e3a5765fcb5d.gif)
 ## Resources
 
 * C - Books and PDF's to check out and use as a reference.
