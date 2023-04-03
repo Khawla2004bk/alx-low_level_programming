@@ -20,10 +20,9 @@ char *_strstr(char *haystack, char *needle)
 				break;
 			j++;
 		}
-		if (needle[b] == '\0')
+		if (needle[j] == '\0')
 			return (haystack + i);
 		i++;
 	}
-	i++;
 	return ('\0');
 }
