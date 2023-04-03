@@ -3,8 +3,8 @@
 /**
  * _strstr - locates a substring
  * @haystack: string
- * @needle: subtring
- * Return: pointer to the beginning of the located substring
+ * @needle: substring
+ * Return: pointer to the beginning of the locates substring
  *         NULL if the substring is not found
  */
 

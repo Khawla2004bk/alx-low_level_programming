@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_diagsums - prints sum of the two diagonals of a square matrix of int
+ * print_diagsums - print sum of two diagonals of a square matrix of int
  * @a: array
  * @size: size of array
  */
