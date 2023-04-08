@@ -15,7 +15,7 @@ int isNum(char num[])
 
 	for (i = 0 ; i < l ; i++)
 		if (!isdigit(num[i]))
-			return (0);
+			return (1);
 	return (0);
 }
 /**
@@ -25,7 +25,7 @@ int isNum(char num[])
  * Return: 0
  */
 
-int main(int argc, argv[])
+int main(int argc, char *argv[])
 {
 	int i, sum;
 
