@@ -8,6 +8,7 @@
 int word_len(char *s)
 {
 	int i = 0, l = 0;
+
 	while (*(s + i) && *(s + i) != ' ')
 	{
 		l++;
@@ -25,6 +26,8 @@ int count_words(char *s)
 {
 	int i = 0, w = 0, l = 0;
 
+	for (i = 0 ; *(s + i) ; i++)
+		l++;
 	for (i = 0 ; i < l ; i++)
 		if (*(s + i) != ' ')
 		{
