@@ -17,11 +17,11 @@ int word_len(char *s)
 }
 /**
  * count_words - Counts the number of words contained within a string.
- * @str: The string to be searched.
+ * @s: The string to be searched.
  *
  * Return: The number of words contained within str.
  */
-int count_words(char *str)
+int count_words(char *s)
 {
 	int i = 0, w = 0, l = 0;
 
@@ -45,7 +45,7 @@ char **strtow(char *str)
 	char **s;
 	int i = 0, words, w, let, l;
 
-	if (s == NULL || s[0] == '\0')
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	words = count_words(s);
 	if (words == 0)
@@ -55,9 +55,9 @@ char **strtow(char *str)
 		return (NULL);
 	for (w = 0 ; w < words ; w++)
 	{
-		while (s[i] == ' ')
+		while (str[i] == ' ')
 			i++;
-		let = word_len(s + i);
+		let = word_len(str + i);
 		s[w] = malloc(sizeof(char) * (let + 1));
 		if (s[w] == NULL)
 		{
@@ -67,7 +67,7 @@ char **strtow(char *str)
 			return (NULL);
 		}
 		for (l = 0 ; l < let ; l++)
-			s[w][l] = s[i++];
+			s[w][l] = str[i++];
 		s[w][l] = '\0';
 	}
 	s[w] = NULL;

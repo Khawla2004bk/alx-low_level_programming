@@ -25,7 +25,7 @@ char *argstostr(int ac, char **av)
 	{
 		for (byte = 0; av[arg][byte]; byte++)
 			s[i++] = av[arg][byte];
-		s[i] = '\n';
+		s[i++] = '\n';
 	}
 	s[size] = '\0';
 	return (s);
