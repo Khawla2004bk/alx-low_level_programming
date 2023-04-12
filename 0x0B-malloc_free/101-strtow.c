@@ -17,10 +17,9 @@ int word_len(char *s)
 	return (l);
 }
 /**
- * count_words - Counts the number of words contained within a string.
- * @s: The string to be searched.
- *
- * Return: The number of words contained within str.
+ * count_words - counts the number of words
+ * @s: string
+ * Return: number of words
  */
 int count_words(char *s)
 {
@@ -37,11 +36,9 @@ int count_words(char *s)
 	return (w);
 }
 /**
- *  strtow - Splits a string into words.
- * @str: The string to be split.
- *
- * Return: If str = NULL, str = "", or the function fails - NULL.
- *         Otherwise - a pointer to an array of strings (words).
+ *  strtow - splits a string into words
+ * @str: string
+ * Return: pointer or NULL
  */
 char **strtow(char *str)
 {
