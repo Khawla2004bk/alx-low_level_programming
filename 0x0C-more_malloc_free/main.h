@@ -20,7 +20,7 @@ int error_exit(void)
 	int i;
 
 	err = "Error";
-	for (i = 0; err [i] != '\0'; i++)
+	for (i = 0; err[i] != '\0'; i++)
 		_putchar(err[i]);
 	_putchar(err[i]);
 	exit(98);
@@ -43,7 +43,7 @@ int check_number(char *str)
 /**
  * _length - length of str
  * @str: string
- * Rteurn: length of str
+ * Return: length of str
  */
 int _length(char *str)
 {
