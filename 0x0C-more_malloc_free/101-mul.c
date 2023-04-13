@@ -57,8 +57,9 @@ void multiply(char *s1, char *s2)
 	tmp = l2;
 	total_l = l1 + l2;
 	ptr = _calloc(sizeof(int), total_l);
+	temp = ptr;
 
-	for (l1-- ; l1 >= 0; '0')
+	for (l1-- ; l1 >= 0; l1--)
 	{
 		f_digit = s1[l1] - '0';
 		res = 0;
@@ -81,7 +82,7 @@ void multiply(char *s1, char *s2)
 	for (i = 0; i < total_l; i++)
 		printf("%i", ptr[i]);
 	printf("\n");
-	free(ptr);
+	free(temp);
 }
 
 /**
