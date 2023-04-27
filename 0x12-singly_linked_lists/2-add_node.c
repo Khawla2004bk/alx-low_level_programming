@@ -23,13 +23,16 @@ int _strlen(const char *s)
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *ad;
+	unsigned int l = 0;
 
+	while (str[l])
+		l++;
 	ad = malloc(sizeof(list_t));
 	if (ad == NULL)
 		return (NULL);
 	ad->str = strdup(str);
-	ad->len = _strlen(str);
+	ad->len = l;
 	ad->next = *head;
 	*head = ad;
-	return (ad);
+	return (*head);
 }
