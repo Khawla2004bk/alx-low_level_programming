@@ -5,7 +5,7 @@
  * @s: char
  * Return: c
  */
-int _strlen(const vhar *s)
+int _strlen(const char *s)
 {
 	int c = 0;
 
