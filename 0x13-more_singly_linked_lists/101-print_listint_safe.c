@@ -7,7 +7,7 @@
  * @new: new node
  * Return: pointer to the new list
  */
-const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
+const listint_t **_r(const listint_t **l, size_t size, const listint_t *new)
 {
 	const listint_t **nl;
 	size_t a;
@@ -15,13 +15,13 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 	nl = malloc(size * sizeof(listint_t *));
 	if (nl == NULL)
 	{
-		free(list);
+		free(l);
 		exit(98);
 	}
 	for (a = 0 ; a < size - 1 ; a++)
-		nl[a] = list[a];
+		nl[a] = l[a];
 	nl[a] = new;
-	free(list);
+	free(l);
 	return (nl);
 }
 /**
