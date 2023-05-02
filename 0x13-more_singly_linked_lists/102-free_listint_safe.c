@@ -1,36 +1,61 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * free_listint_safe - frees a listint_t list
+ * find_listint_loop_fl - finds a loop in a linked list
+ * @head: head
+ * Return: address of node where loop starts, NULL if no loop
+ */
+listint_t *find_listint_loop_fl(listint_t *head)
+{
+	listint_t *p, *l;
+
+	if (head == NULL)
+		return (NULL);
+
+	for (l = head->next; l != NULL; l = l->next)
+	{
+		if (l == l->next)
+			return (l);
+		for (p = head; p != l; p = p->next)
+			if (p == l->next)
+				return (l->next);
+	}
+	return (NULL);
+}
+/**
+ * free_listint_safe - frees a listint list
  * @h: head
- * Return: the size of the list that was free’d
+ * Return: num of nodes freed
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t l = 0;
-	int dif;
-	listint_t *tmp;
+	listint_t *next, *loop;
+	size_t len;
+	int n = 1;
 
-	if (!h || !*h)
+	if (h == NULL || *h == NULL)
 		return (0);
-	while (*h)
+
+	loop = find_listint_loop_fl(*h);
+	for (len = 0; (*h != loop || n) && *h != NULL; *h = next)
 	{
-		dif = *h - (*h)->next;
-		if (dif > 0)
+		len++;
+		next = (*h)->next;
+		if (*h == loop && n)
 		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
-			l++;
+			if (loop == loop->next)
+			{
+				free(*h);
+				break;
+			}
+			len++;
+			next = next->next;
+			free((*h)->next);
+			n = 0;
 		}
-		else
-		{
-			free(*h);
-			*h = NULL;
-			l++;
-			break;
-		}
+		free(*h);
 	}
 	*h = NULL;
-	return (l);
+	return (len);
 }
