@@ -1,5 +1,5 @@
-#include "elf1.h"
-#include "elf2.h"
+#include "elf.h"
+#include "elf-a.h"
 
 /**
  * print_version - Prints the version of an ELF header.
