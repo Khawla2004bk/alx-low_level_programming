@@ -1,5 +1,5 @@
-#ifndef ELF_H
-#define ELF_H
+#ifndef ELF_A_H
+#define ELF_A_H
 
 #include "main.h"
 
@@ -27,9 +27,11 @@ __home void check_elf(unsigned char *e_ident)
  * print_magic - Prints the magic numbers of an ELF header.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
  */
+
 __home void print_magic(unsigned char *e_ident)
 {
 	int i;
+
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
@@ -70,6 +72,7 @@ __home void print_class(unsigned char *e_ident)
 __home void print_data(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
+
 	switch (e_ident[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -85,4 +88,5 @@ __home void print_data(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
+
 #endif

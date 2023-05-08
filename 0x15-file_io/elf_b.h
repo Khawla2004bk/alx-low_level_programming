@@ -1,5 +1,5 @@
-#ifndef ELF_A_H
-#define ELF_A_H
+#ifndef ELF_B_H
+#define ELF_B_H
 
 #include "main.h"
 
@@ -10,6 +10,7 @@
 __home void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
+
 	switch (e_ident[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
@@ -46,6 +47,7 @@ __home void print_osabi(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
+
 /**
  * print_abi - Prints the ABI version of an ELF header.
  * @e_ident: A pointer to an array containing the ELF ABI version.
@@ -55,6 +57,7 @@ __home void print_abi(unsigned char *e_ident)
 	printf("  ABI Version:                       %d\n",
 	       e_ident[EI_ABIVERSION]);
 }
+
 /**
  * print_type - Prints the type of an ELF header.
  * @e_type: The ELF type.
@@ -65,6 +68,7 @@ __home void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 	printf("  Type:                              ");
+
 	switch (e_type)
 	{
 	case ET_NONE:
@@ -86,6 +90,7 @@ __home void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_type);
 	}
 }
+
 /**
  * print_entry - Prints the entry point of an ELF header.
  * @e_entry: The address of the ELF entry point.
