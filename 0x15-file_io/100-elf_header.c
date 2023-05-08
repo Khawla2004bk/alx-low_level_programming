@@ -1,5 +1,5 @@
-#include "elf.h"
-#include "elf-a.h"
+#include "elf_b.h"
+#include "elf_a.h"
 
 /**
  * print_version - Prints the version of an ELF header.
@@ -38,12 +38,12 @@ void close_elf(int elf)
  *	ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- * Return: 0
+ * Return: 0 on success.
  */
 int main(__silent int argc, char *argv[])
 {
 	Elf64_Ehdr *h;
-	int O, r;
+	int O, R;
 
 	O = open(argv[1], O_RDONLY);
 	if (O == -1)
@@ -58,7 +58,7 @@ int main(__silent int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	r = read(O, h, sizeof(Elf64_Ehdr));
+	R = read(O, h, sizeof(Elf64_Ehdr));
 	if (R == -1)
 	{
 		free(h);
@@ -66,6 +66,7 @@ int main(__silent int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
+
 	check_elf(h->e_ident);
 	printf("ELF Header:\n");
 	print_magic(h->e_ident);
@@ -76,6 +77,7 @@ int main(__silent int argc, char *argv[])
 	print_abi(h->e_ident);
 	print_type(h->e_type, h->e_ident);
 	print_entry(h->e_entry, h->e_ident);
+
 	free(h);
 	close_elf(O);
 	return (0);
